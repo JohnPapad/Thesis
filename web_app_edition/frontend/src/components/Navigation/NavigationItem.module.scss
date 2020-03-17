@@ -1,0 +1,27 @@
+@import "../../styles/colors";
+@import "../../styles/texts";
+@import "../../styles/buttons";
+
+
+
+#nav_item {
+    border: 3px solid $secColor;
+    background-color: $primColor;
+    font-weight: bold;
+
+    @include remove_hl;
+
+    &:hover {
+        background-color: $primColorDarker;
+    }
+
+    .text {
+        color: $secColor;
+        font-size: $fontMD;
+    }
+}
+
+
+.nav_item_active {
+    background-color: $primColorDarker !important;
+}

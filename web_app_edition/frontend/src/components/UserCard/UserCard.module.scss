@@ -1,0 +1,84 @@
+@import '../../styles/colors';
+@import '../../styles/texts';
+
+
+#user_card {
+    background-color: $primColorDarker;
+    border: {
+        width: 6px;
+        style: solid;
+        radius: 5px;;
+    };
+    width: 80%;
+    max-width: 250px;
+
+    @media screen and (max-width: 940px) {
+        width: 96%;
+    };
+}
+
+@mixin playerBoxShadow($color) {
+    box-shadow: 1px 1px 8px 3px $color;
+}
+
+@mixin playerCard($color) {
+    border-color: $color;
+    color: $color;
+}
+
+@mixin imgBorder($color) {
+    background-color: grey;
+    border: {
+        width: 5px;
+        style: solid;
+        color: $color;
+    };
+}
+
+.playerBoxShadowX {
+    @include playerBoxShadow($playerXcolor);
+}
+
+.playerBoxShadowO {
+    @include playerBoxShadow($playerOcolor);
+}
+
+.playerCardX {
+    @include playerCard($playerXcolor);
+}
+
+.playerCardO {
+    @include playerCard($playerOcolor);
+}
+
+.imgBorderX {
+    @include imgBorder($playerXcolor);
+}
+
+.imgBorderO {
+    @include imgBorder($playerOcolor);
+}
+
+#img_wrapper {
+    width: 40%;
+    min-width: 65px;
+    max-width: 90px;
+}
+
+#img_wrapper2 {
+    width: 45px;
+    height: 45px;
+}
+
+#username{
+    font: {
+        weight: bold;
+        size: $fontLG;
+    }
+    overflow-wrap: break-word;
+}
+
+
+#timer_wrapper{
+    border-bottom: 2px solid black;
+}

@@ -1,0 +1,53 @@
+@import '../../styles/colors';
+@import '../../styles/texts';
+
+
+#main_content{
+    padding: 0px;
+    height: 100%;
+}
+
+#content{
+    height: 100vh;
+    background-color: $primColorLight;
+    padding-top: 15vh;
+    padding-bottom: 2vh;
+}
+
+#game_area{
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    @media screen and (max-width: 575px) {
+        height: 75%;
+    };
+}
+
+#modal {
+    color: $secColor;
+    box-shadow: 2px 2px 8px 6px $primColorDarker;
+    border-radius: 5px;
+}
+
+#modal_header {
+    background-color: $primColorLight;
+    border-bottom: 1px solid $secColor;
+}
+
+#modal_body {
+    background-color: $primColorLight;
+}
+
+#modal_footer {
+    background-color: $primColorLight;
+    border-top: 1px solid $secColor;
+}
+
+.modal_content {
+    font: {
+        weight: bold !important;
+        size: $fontLG !important;
+    }
+}
+

@@ -1,0 +1,21 @@
+@import '../../../styles/colors';
+
+#board {
+    stroke: $primColorDarker;
+    stroke-width:12;
+}
+
+.board_coords {
+    font-size: 30px;
+    fill: $primColorDarker;
+    font-weight: bold;
+    text-align: center;
+}
+
+g {
+    stroke:#333333; 
+    stroke-width:10;
+    fill:none;
+}
+
+  

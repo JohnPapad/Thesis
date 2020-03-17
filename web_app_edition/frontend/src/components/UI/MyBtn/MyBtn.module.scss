@@ -1,0 +1,27 @@
+@import '../../../styles/colors';
+@import '../../../styles/texts';
+@import '../../../styles/buttons';
+
+
+#submit_btn {
+    @include remove_hl;
+    background-color: $primColorDark;
+    color: $secColor;
+    border: {
+        style: solid; 
+        color: $secColor;
+        width: 3px;
+    }
+    &:hover {
+        background-color: $primColorDarker;
+    };
+}
+
+
+.sizeLG {
+    font-size: $fontLG !important;
+}
+
+.sizeMD {
+    font-size: $fontMD !important;
+}

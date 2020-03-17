@@ -1,0 +1,21 @@
+
+
+.player_X_marker {
+    fill: #336699;
+}
+
+.player_O_marker {
+    fill: #ffcc66;
+}
+
+.spot_highlighted {
+    stroke: #33cc33;
+}
+
+.spot_allowed:hover {
+    cursor: pointer;
+}
+
+.spot_not_allowed:hover {
+    cursor: not-allowed;
+}

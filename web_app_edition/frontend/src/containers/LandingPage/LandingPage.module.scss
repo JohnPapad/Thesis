@@ -1,0 +1,45 @@
+@import "../../styles/colors";
+@import "../../styles/breakpoints";
+@import "../../styles/gradients";
+
+
+#content{
+    height: 100vh;
+    padding-top: 5vh;
+    padding-bottom: 0vh;
+}
+
+#left_panel {
+    color: $secColor;
+    background-color: $primColorLight;
+    height: 33%;
+    @media screen and (min-width: $sm) {
+        height: 100%;
+    }
+}
+
+#right_panel {
+    background: {
+        color: $secColor;
+        position: top;
+        size: contain;
+        repeat: no-repeat;
+    };
+    height: 67%;
+    @media screen and (min-width: $sm) {
+        height: 100%;
+    }
+}
+
+.panel_bg_gradient {
+    width: 100%;
+    height: 100%;
+    background: $linGradBtm;
+}
+
+#title {
+    color: #ffcc66;
+    font-size: calc(10px + 8vmin);
+    font-weight: bold;
+    text-shadow: 4px 4px 7px black;
+}

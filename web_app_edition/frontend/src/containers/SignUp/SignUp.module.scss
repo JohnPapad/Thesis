@@ -1,0 +1,49 @@
+@import "../../styles/colors";
+@import "../../styles/gradients";
+@import "../../styles/texts";
+@import "../../styles/buttons";
+
+
+#content{
+    min-height: 100vh;
+    padding-top: 15vh;
+    background-color: $secColor;
+}
+
+#bg_gradient{
+    background: $linGradBtm;
+}
+
+#signup_form {
+    background-color: $primColorLight;
+    font-weight: bold;
+    color: $secColor;
+    border: 5px solid $primColorDarker;
+    box-shadow: 1px 1px 8px 2px $primColor;
+}
+
+#header {
+    font-size: $fontLG;
+    background-color: $primColor;
+}
+
+#form_text {
+    font-weight: lighter;
+    color: $secColor;
+}
+
+#submit_btn {
+    @include remove_hl;
+    background-color: $primColorDark;
+    color: $secColor;
+    font-weight: bold;
+    border: {
+        style: solid; 
+        color: $secColor;
+        width: 4px;
+    }
+    font-size: $fontMD;
+    &:hover {
+        background-color: $primColorDarker;
+    };
+}
