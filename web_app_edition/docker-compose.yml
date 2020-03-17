@@ -1,0 +1,60 @@
+version: "3.2"
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app/backend
+    restart: always
+    privileged: true
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    stdin_open: true
+    tty: true
+    depends_on: 
+      - db
+      - redis-helper
+    links:
+      - db
+    sysctls:
+      - net.core.somaxconn=511
+    command: >
+        sh -c "redis-server --daemonize yes
+        && python3 manage.py migrate
+        && python3 manage.py makemigrations
+        && python3 manage.py runserver 0.0.0.0:8000"
+  db:
+    image: postgres:10.12
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    restart: always
+    environment:
+        POSTGRES_DB: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: rafpap
+  redis-helper:
+    image: alpine:latest
+    command: >
+        sh -c "echo never > /sys/kernel/mm/transparent_hugepage/enabled
+        &&  echo 1 > /proc/sys/vm/overcommit_memory"
+    privileged: true
+    restart: 'no'
+  frontend:
+    build: ./frontend
+    volumes: 
+      - ./frontend:/app/frontend
+      - node-modules:/app/frontend/node_modules
+    restart: always
+    expose: 
+      - "3000"
+    ports: 
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    command: npm start
+volumes:
+  db_data:
+  node-modules:
