@@ -13,8 +13,6 @@ A [terminal edition](https://github.com/JohnPapad/Thesis/tree/master/terminal_ed
 
 [Contributors](#contributors)
 
-[Task Separation](#taskSep)
-
 [The Stack](#stack)
 
 [Tools Used](#tools)
@@ -165,18 +163,6 @@ game.
 [Ioannis Papadopoulos](https://github.com/JohnPapad)
 
 [Rafail Chatzidakis](https://github.com/RafaelChatz)
-
-
-<a name="taskSep"/>
-
-# Task Separation
-
-## Ioannis Papadopoulos
-Worked on implementing the whole UI interface, the front-end part of the project, using the ReactJS framework. Also mainly implemented the AI bot, using the minimax decision-making algorithm with the Alpha-Beta Pruning optimization technique, alongside with efficient heuristic functions.
-
-## Rafail Chatzidakis
-Worked on implementing the whole back-end part of the project, which includes the API (Django REST Framework), database (PostgreSQL) and websocket (Django channels) implementation. Also provided assistance on the AI bot part.
-
 
 <a name="stack"/>
 
