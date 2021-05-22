@@ -7,7 +7,7 @@ from game_nmm import redis_management as rm
 from asgiref.sync import async_to_sync
 from random import choices , randrange
 
-class Game_Timer (threading.Thread):
+class Game_Timer (threading.Thread): #game timer thread sends a signal when the time is over
     def __init__(self,room_name):
         super(Game_Timer , self).__init__(name="Game_Timer thread")
         self.room_name=room_name
@@ -22,7 +22,7 @@ class Game_Timer (threading.Thread):
 
         })) 
 
-class Lobby_Match (threading.Thread):
+class Lobby_Match (threading.Thread): #lobby match thread searches for random players and adds them to a game
     def __init__(self,cs):
         self.cons=cs
         super(Lobby_Match , self).__init__(name="Lobby_Match thread")

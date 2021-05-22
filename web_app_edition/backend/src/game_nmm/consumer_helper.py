@@ -3,7 +3,9 @@ from game_nmm.nmm import PvAI as pvai
 from game_nmm.nmm import general as gn
 from game_nmm import redis_management as rm
 
-def receive_helper(data_type,text_data_json,room_name):
+def receive_helper(data_type,text_data_json,room_name): 
+    #just a "cool" way to call functions globals has the names of all the functions inside his file
+    #we find the function and we call is using strings
     func=data_type+"_helper"
     if func in globals():
         return eval(func+'(text_data_json,room_name)')

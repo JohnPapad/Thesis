@@ -16,6 +16,10 @@ import time
 import string
 import random
 
+# every consumer has three function in common (connect, disconnect, receive) 
+# the others are custom functions and are called because of events
+# this functions are called because the json has type with the name of the function
+
 class Game_NMMConsumer(WebsocketConsumer):
 
 
@@ -29,8 +33,6 @@ class Game_NMMConsumer(WebsocketConsumer):
         ch=rm.check_game_websocket(self.room_name,self.channel_name)
       
         if ch==-1:
-            self.close()
-        elif ch==-2:
             self.close()
         else:
             rm.initialize_board_info(self.room_name)
@@ -67,7 +69,7 @@ class Game_NMMConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         data_type = text_data_json["type"]
-            
+        print(text_data)
         send_info={
             'type': data_type,
             'data': ch.receive_helper(data_type,text_data_json,self.room_name)
@@ -187,7 +189,7 @@ class GameAI_NMMConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps(data))
 
 class LobbyConsumer(WebsocketConsumer):
-
+    #if there is no lobby it is created when a user wants to join
     def connect(self): 
         self.uid=self.scope['url_route']['kwargs']['id']
         self.username=self.scope['url_route']['kwargs']['username']

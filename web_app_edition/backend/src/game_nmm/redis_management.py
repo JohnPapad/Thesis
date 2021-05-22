@@ -6,7 +6,7 @@ import json
 import time
 import random
 
-def initialize_board_info(room_name):
+def initialize_board_info(room_name): # creating the json for an empty board
     r = redis.Redis(host='localhost', port=6379, db=0)
 
     game_info_key  = "game_" + room_name
@@ -26,7 +26,7 @@ def initialize_board_info(room_name):
         json_info=json.dumps(info)
         r.set(game_info_key, json_info)
 
-
+#updating the board according to moves made by players and AI
 def update_board_info(room_name,board,all_men_placed,men_placed,men_remaining,made_mills_indexes,counter=0,changeGamePhase=False ,ref_coord=8):
     r = redis.Redis(host='localhost', port=6379, db=0)
     game_info_key  = "game_"  +room_name
@@ -65,7 +65,9 @@ def get_board_info(room_name):
 
     return board,all_men_placed,men_placed,men_remaining,made_mills_indexes,counter,changeGamePhase,ref_coord
 
-def check_game_websocket(room_name,channel_name):
+def check_game_websocket(room_name,channel_name): # tries to connect the two players
+    #first player one is added and then the second else an error is returned (-1)
+    # the game decides who user1 and user2 is.
     r = redis.Redis(host='localhost', port=6379, db=0)
     user1_game_key = "user1_" +room_name
     user2_game_key = "user2_" +room_name

@@ -1,4 +1,6 @@
 from django.contrib.sessions.middleware import SessionMiddleware
+# used to bypass the Session middleware when the web_app is used.
+# Django needs that kinf od middleware so we create a class that extends the default middleware.
 
 class DisableSessionMiddleware(SessionMiddleware):
     def process_request(self, request):
