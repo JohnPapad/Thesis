@@ -20,12 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm+i307jil5p*1l)9g0f9dj=p1743_sz$*g4lw=rprthcj)oqn8'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    os.getenv("ALLOWED_HOST")
+]
 
 
 # Application definition
@@ -92,10 +94,10 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD' : 'rafpap',
-        'HOST' : "db",
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USERNAME"),
+        'PASSWORD' : os.getenv("DB_PASSWORD"),
+        'HOST' : "postgres",
         'PORT' : '5432',
     }
 }
@@ -152,9 +154,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+
+CORS_ORIGIN_WHITELIST = [
+    os.getenv("CORS_DMN")
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
