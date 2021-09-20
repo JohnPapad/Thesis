@@ -191,7 +191,7 @@ game.
 
 - **PostgreSQL** (for data storage)
 - **Redis** (for efficient data storage and retrieval during games)
-- **Docker** (for easy installation and future deployment)
+- **Docker** (for easy containerized installation and future deployment)
 
 
 <a name="install"/>
